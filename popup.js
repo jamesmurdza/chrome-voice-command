@@ -34,6 +34,11 @@ function hidePreview() {
       preview.style.display = "none";
 }
 
+function onComplete(command) {
+  document.querySelector("form textarea").value = command;
+  document.querySelector("form button").click();
+}
+
 function startRecognizer() {
     
   if ('webkitSpeechRecognition' in window) {
@@ -50,7 +55,8 @@ function startRecognizer() {
       if (result.isFinal) {
         preview.innerHTML = `${result[0].transcript}`; //alert('Вы продикотвали: ' + result[0].transcript);
         preview.className = 'complete';
-        hidePreviewTimer = setTimeout(hidePreview, 2000)
+        hidePreviewTimer = setTimeout(hidePreview, 2000);
+        onComplete(result[0].transcript);
       } else {
         preview.className = '';
         preview.innerHTML = `${result[0].transcript}`;
