@@ -35,7 +35,7 @@ function hidePreview() {
 }
 
 function onComplete(command) {
-  document.querySelector("form textarea").value = command;
+  document.querySelector("form textarea").value = "Answer in one sentence: " + command;
   document.querySelector("form button").click();
 }
 
