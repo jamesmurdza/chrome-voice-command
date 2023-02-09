@@ -69,7 +69,7 @@ function startRecognizer() {
 
     recognition.onend = function() {
       console.log('Recognition completed.');
-      speechSynthesis.speak(new SpeechSynthesisUtterance('Recognition completed.'));
+      startRecognizer();
     };
 
     speechSynthesis.speak(new SpeechSynthesisUtterance('Start dictating text:'));
